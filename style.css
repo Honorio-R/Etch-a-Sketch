@@ -1,0 +1,26 @@
+body{
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#container{
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex: 0;
+    flex-wrap: wrap;
+}
+
+.grid-item{
+    height: 10px;
+    width: 10px;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    border: solid 1px black;
+}
