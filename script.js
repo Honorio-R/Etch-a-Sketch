@@ -16,7 +16,8 @@ for (let i = 0; i < 6400; i++) {
     dPad.appendChild(newDiv);
 
     // If mouse is pressed and hold mouseHold to true
-    newDiv.addEventListener('mousedown', function() {
+    newDiv.addEventListener('mousedown', function(event) {
+        event.preventDefault(); // Prevent default dragging issue
         mouseHold = true;
         this.classList.add('drawed');
     });
