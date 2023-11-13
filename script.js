@@ -49,6 +49,25 @@ function changePad(){
             }
         });
 
+        if (gridVal === 100){
+            newDiv.style.height = '80px';
+            newDiv.style.width = '80px';
+        } else if (gridVal === 400){
+            newDiv.style.height = '40px';
+            newDiv.style.width = '40px';
+        } else if (gridVal === 900){
+            newDiv.style.height = '26.667px';
+            newDiv.style.width = '26.667px';
+        } else if (gridVal === 1600){
+            newDiv.style.height = '20px';
+            newDiv.style.width = '20px';
+        } else if (gridVal === 2500){
+            newDiv.style.height = '16px';
+            newDiv.style.width = '16px';
+        } else if (gridVal === 3600){
+            newDiv.style.height = '13.3333333px';
+            newDiv.style.width = '13.3333333px';
+        }  
         // Removes the hover which reverts to the original style
         // newDiv.addEventListener('mouseout', function() {
         //     newDiv.classList.remove('drawed');
