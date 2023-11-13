@@ -1,4 +1,4 @@
-const container = document.querySelector('#container');
+const dPad = document.querySelector('#draw-pad');
 
 // create 16x16 divs using for loop
 for (let i = 0; i < 256; i++) {
@@ -11,8 +11,8 @@ for (let i = 0; i < 256; i++) {
     // Add second class to the div
     newDiv.classList.add('grid-' + i);
 
-    // Append the div to the container
-    container.appendChild(newDiv);
+    // Append the div to the dPad
+    dPad.appendChild(newDiv);
 
     // Attach event listeners for hover effect inside the loop
     newDiv.addEventListener('mouseover', function() {
