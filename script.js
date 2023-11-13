@@ -1,7 +1,7 @@
 const dPad = document.querySelector('#draw-pad');
 
 // create 16x16 divs using for loop
-for (let i = 0; i < 1600; i++) {
+for (let i = 0; i < 6400; i++) {
     // Create a new div element
     var newDiv = document.createElement('div');
     
