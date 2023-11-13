@@ -9,18 +9,26 @@ body{
 #container{
     margin: 0;
     padding: 0;
-    width: 200px;
-    height: 200px;
+    width: 320px;
+    height: 320px;
+    border: solid 1px black;
     display: flex;
     flex: 0;
     flex-wrap: wrap;
 }
 
 .grid-item{
-    height: 10px;
-    width: 10px;
+    height: 20px;
+    width: 20px;
     margin: 0;
     padding: 0;
     background-color: white;
-    border: solid 1px black;
+}
+
+.hovered{
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: black;
 }
