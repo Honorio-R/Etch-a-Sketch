@@ -1,9 +1,10 @@
 const dPad = document.querySelector('#draw-pad');
+let mouseHold = false; // Variable to check if mouse is being hold or pressed
 
 // create 16x16 divs using for loop
 for (let i = 0; i < 6400; i++) {
     // Create a new div element
-    var newDiv = document.createElement('div');
+    const newDiv = document.createElement('div');
     
     // Add a class to the div
     newDiv.classList.add('grid-item');
@@ -14,11 +15,23 @@ for (let i = 0; i < 6400; i++) {
     // Append the div to the dPad
     dPad.appendChild(newDiv);
 
-    // Attach event listeners for hover effect inside the loop
-    newDiv.addEventListener('mouseover', function() {
+    // If mouse is pressed and hold mouseHold to true
+    newDiv.addEventListener('mousedown', function() {
+        mouseHold = true;
         this.classList.add('hovered');
     });
 
+    // If mouse button is released mouseHold to false
+    newDiv.addEventListener('mouseup', function() {
+        mouseHold = false;
+    });
+
+    // If mouse is pressed within a div turns mouseHold to true
+    newDiv.addEventListener('mouseenter', function() {
+        if (mouseHold) {
+            this.classList.add('hovered');
+        }
+    });
 
     // Removes the hover which reverts to the original style
     // newDiv.addEventListener('mouseout', function() {
