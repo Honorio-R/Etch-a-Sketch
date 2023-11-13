@@ -18,7 +18,7 @@ for (let i = 0; i < 6400; i++) {
     // If mouse is pressed and hold mouseHold to true
     newDiv.addEventListener('mousedown', function() {
         mouseHold = true;
-        this.classList.add('hovered');
+        this.classList.add('drawed');
     });
 
     // If mouse button is released mouseHold to false
@@ -29,12 +29,12 @@ for (let i = 0; i < 6400; i++) {
     // If mouse is pressed within a div turns mouseHold to true
     newDiv.addEventListener('mouseenter', function() {
         if (mouseHold) {
-            this.classList.add('hovered');
+            this.classList.add('drawed');
         }
     });
 
     // Removes the hover which reverts to the original style
     // newDiv.addEventListener('mouseout', function() {
-    //     newDiv.classList.remove('hovered');
+    //     newDiv.classList.remove('drawed');
     // });
 }
