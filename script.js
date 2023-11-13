@@ -1,8 +1,21 @@
 const dPad = document.querySelector('#draw-pad');
+const sliderVal = document.querySelector('#slider-value');
+const outputVal = document.querySelector('#output-value');
+
+// Variables
+let gridVal = 40*40; // Sets the default grid size value
+let padHeight = 800;
 let mouseHold = false; // Variable to check if mouse is being hold or pressed
 
-// create 16x16 divs using for loop
-for (let i = 0; i < 6400; i++) {
+// Gets and Change slider value
+sliderVal.addEventListener('input', function(){
+    outputVal.textContent = this.value + " x " + this.value;
+    gridVal = this.value*this.value;
+});
+
+
+// Creates 16x16 divs using for loop
+for (let i = 0; i < gridVal; i++) {
     // Create a new div element
     const newDiv = document.createElement('div');
     
