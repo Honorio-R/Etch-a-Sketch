@@ -1,7 +1,7 @@
 *{
-    font-family: DOS, Courier, "Courier New", monospace;
+    font-family: 'SpaceType', sans-serif, "Courier New", monospace;
     color: rgb(236, 236, 241);
-    font-weight: 550;
+    font-weight: 400;
 }
 
 body{
@@ -78,4 +78,8 @@ h1{
     margin: 0;
     padding: 0;
     background-color: black;
+}
+
+button{
+    background-color: transparent;
 }
