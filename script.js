@@ -2,19 +2,18 @@ const dPad = document.querySelector('#draw-pad');
 const sliderVal = document.querySelector('#slider-value');
 const outputVal = document.querySelector('#output-value');
 const eraserBtn = document.querySelector('#eraser-button');
+const colorPicker = document.querySelector('#color-picker');
 
 // Variables
 let gridVal = 40*40; // Sets the default grid size value
-let padHeight = 800;
 let mouseHold = false; // Variable to check if mouse is being hold or pressed
 let mouseErase = false; // Variable to check if user selected eraser
+let selectedColor = '#000000';
 
-// Gets and Change slider value
-sliderVal.addEventListener('input', function(){
-    outputVal.textContent = this.value + " x " + this.value;
-    gridVal = this.value*this.value;
-    changePad();
-});
+// Gets color changes
+function updateColor() {
+    selectedColor = colorPicker.value;
+}
 
 // Gets eraser buttons status
 eraserBtn.addEventListener('click', function(){
@@ -22,7 +21,13 @@ eraserBtn.addEventListener('click', function(){
     mouseErase = !mouseErase;
 });
 
-function changePad(){
+// Gets and Change slider value
+sliderVal.addEventListener('input', function(){
+    outputVal.textContent = this.value + " x " + this.value;
+    gridVal = this.value*this.value;
+});
+
+function updatePad(){
     dPad.innerHTML = '';
     // Creates 16x16 divs using for loop
     for (let i = 0; i < gridVal; i++) {
@@ -44,9 +49,11 @@ function changePad(){
             if (mouseErase === true){ // condition that checks if eraser is active
                 mouseHold = true;
                 this.classList.remove('drawed');
+                this.style.backgroundColor = '#ffffff';
             } else {
                 mouseHold = true;
                 this.classList.add('drawed');
+                this.style.backgroundColor = selectedColor;
             }
         });
 
@@ -59,8 +66,10 @@ function changePad(){
         newDiv.addEventListener('mouseenter', function() {
             if (mouseErase === true && mouseHold === true){ // condition that checks if eraser is active
                 this.classList.remove('drawed');
+                this.style.backgroundColor = '#ffffff';
             } else if (mouseHold === true) {
                 this.classList.add('drawed');
+                this.style.backgroundColor = selectedColor;
             }
         });
 
@@ -84,10 +93,6 @@ function changePad(){
             newDiv.style.height = '13.3333333px';
             newDiv.style.width = '13.3333333px';
         }  
-        // Removes the hover which reverts to the original style
-        // newDiv.addEventListener('mouseout', function() {
-        //     newDiv.classList.remove('drawed');
-        // });
     }
 }
-changePad();
+updatePad();
