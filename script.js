@@ -1,17 +1,25 @@
 const dPad = document.querySelector('#draw-pad');
 const sliderVal = document.querySelector('#slider-value');
 const outputVal = document.querySelector('#output-value');
+const eraserBtn = document.querySelector('#eraser-button');
 
 // Variables
 let gridVal = 40*40; // Sets the default grid size value
 let padHeight = 800;
 let mouseHold = false; // Variable to check if mouse is being hold or pressed
+let mouseErase = false; // Variable to check if user selected eraser
 
 // Gets and Change slider value
 sliderVal.addEventListener('input', function(){
     outputVal.textContent = this.value + " x " + this.value;
     gridVal = this.value*this.value;
     changePad();
+});
+
+// Gets eraser buttons status
+eraserBtn.addEventListener('click', function(){
+    eraserBtn.style.border = mouseErase ? 'solid 1px #202123' : 'solid 1px #ececf1';
+    mouseErase = !mouseErase;
 });
 
 function changePad(){
@@ -33,8 +41,13 @@ function changePad(){
         // If mouse is pressed and hold mouseHold to true
         newDiv.addEventListener('mousedown', function(event) {
             event.preventDefault(); // Prevent default dragging issue
-            mouseHold = true;
-            this.classList.add('drawed');
+            if (mouseErase === true){ // condition that checks if eraser is active
+                mouseHold = true;
+                this.classList.remove('drawed');
+            } else {
+                mouseHold = true;
+                this.classList.add('drawed');
+            }
         });
 
         // If mouse button is released mouseHold to false
@@ -44,11 +57,14 @@ function changePad(){
 
         // If mouse is pressed within a div turns mouseHold to true
         newDiv.addEventListener('mouseenter', function() {
-            if (mouseHold) {
+            if (mouseErase === true && mouseHold === true){ // condition that checks if eraser is active
+                this.classList.remove('drawed');
+            } else if (mouseHold === true) {
                 this.classList.add('drawed');
             }
         });
 
+        // Changes the size of each grid to fill the drawing container
         if (gridVal === 100){
             newDiv.style.height = '80px';
             newDiv.style.width = '80px';
