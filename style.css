@@ -38,7 +38,6 @@ h1{
     display: flex;
 	justify-content: center;
     align-items: center;
-	align-items: center;
 }
 
 #body-container{
@@ -46,7 +45,6 @@ h1{
     width: 1100px;
     margin: 100px;
     padding: 0;
-    border: solid 1px rgb(217, 217, 227);
     display: flex;
     flex: 1;
     justify-content: center;
@@ -57,6 +55,7 @@ h1{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 h3{
@@ -67,7 +66,7 @@ h3{
 .control-buttons,
 .slider-container{
     height: 90px;
-    margin: 5px 0px 20px 0px;
+    margin-bottom: 40px; 
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -75,11 +74,14 @@ h3{
     justify-content: center;
 }
 
-.fa-eraser{
+.fa-eraser,
+.fa-fill{
+    margin-bottom: 10px;
     font-size: 30px;
 }
 
 #color-picker{
+    background-color: transparent;
     width: 150px;
     border: none;
     outline: none;
