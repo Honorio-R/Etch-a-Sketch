@@ -52,9 +52,39 @@ h1{
     justify-content: center;
 }
 
-#control-panel{
+.control-panel{
     width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+h3{
+    font-size: 20px;
+}
+
+.color-panel,
+.control-buttons,
+.slider-container{
+    height: 90px;
+    margin: 5px 0px 20px 0px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-eraser{
+    font-size: 30px;
+}
+
+#color-picker{
+    width: 150px;
+    border: none;
+    outline: none;
+}
+
 
 #container{
     display: flex;
@@ -83,5 +113,4 @@ h1{
     margin: 0;
     padding: 0;
 }
-/* sadasd */
 
