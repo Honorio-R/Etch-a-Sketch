@@ -3,13 +3,14 @@ const sliderVal = document.querySelector('#slider-value');
 const outputVal = document.querySelector('#output-value');
 const eraserBtn = document.querySelector('#eraser-button');
 const colorPicker = document.querySelector('#color-picker');
+const fillBtn = document.querySelector('#fill-button');
 
 // Variables
 let gridVal = 40*40; // Sets the default grid size value
 let mouseHold = false; // Variable to check if mouse is being hold or pressed
 let mouseErase = false; // Variable to check if user selected eraser
+let mouseFill = false; // Variable to check if user selected fill button
 let selectedColor = '#000000';
-
 // Gets color changes
 function updateColor() {
     selectedColor = colorPicker.value;
@@ -21,6 +22,12 @@ eraserBtn.addEventListener('click', function(){
     mouseErase = !mouseErase;
 });
 
+// Fills the whole grid
+fillBtn.addEventListener('click', function(){
+    fillBtn.style.border = mouseFill ? 'solid 1px #202123' : 'solid 1px #ececf1';
+    mouseFill = !mouseFill;
+});
+
 // Gets and Change slider value
 sliderVal.addEventListener('input', function(){
     outputVal.textContent = this.value + " x " + this.value;
@@ -29,6 +36,15 @@ sliderVal.addEventListener('input', function(){
 
 function updatePad(){
     dPad.innerHTML = '';
+    
+    function fillGrid(color) {
+        const gridItems = document.querySelectorAll('.grid-item');
+        gridItems.forEach(gridItem => {
+            gridItem.style.backgroundColor = color;
+            gridItem.classList.add('drawed');
+        });
+    }
+
     // Creates 16x16 divs using for loop
     for (let i = 0; i < gridVal; i++) {
         // Create a new div element
@@ -44,18 +60,22 @@ function updatePad(){
         dPad.appendChild(newDiv);
 
         // If mouse is pressed and hold mouseHold to true
+        // If mouse is pressed and hold mouseHold to true
         newDiv.addEventListener('mousedown', function(event) {
             event.preventDefault(); // Prevent default dragging issue
             if (mouseErase === true){ // condition that checks if eraser is active
                 mouseHold = true;
                 this.classList.remove('drawed');
                 this.style.backgroundColor = '#ffffff';
+            } else if (mouseFill === true) { // condition that checks if fill button is active
+                fillGrid(selectedColor);
             } else {
                 mouseHold = true;
                 this.classList.add('drawed');
                 this.style.backgroundColor = selectedColor;
             }
         });
+
 
         // If mouse button is released mouseHold to false
         newDiv.addEventListener('mouseup', function() {
