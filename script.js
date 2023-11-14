@@ -92,7 +92,7 @@ function updatePad(){
         } else if (gridVal === 3600){
             newDiv.style.height = '13.3333333px';
             newDiv.style.width = '13.3333333px';
-        }  
+        }
     }
 }
 updatePad();
