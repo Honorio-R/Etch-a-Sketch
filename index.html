@@ -22,11 +22,15 @@
                 <div class="control-buttons">
                     <label for="eraser-button">Eraser</label>
                     <br>
-                    <button id="eraser-button"><i class="fa-solid fa-eraser"></i></button>
+                    <button id="eraser-button">
+                        <i class="fa-solid fa-eraser"></i>
+                    </button>
                     <br>
                     <label for="fill-button">Fill</label>
                     <br>
-                    <button id="fill-button"><i class="fa-sharp fa-solid fa-fill"></i></button>
+                    <button id="fill-button">
+                        <i class="fa-sharp fa-solid fa-fill"></i>
+                    </button>
                 </div>
                 <div class="slider-container">
                     <label for="slider-value">Change Grid Size</label>
@@ -40,7 +44,16 @@
             </div>
         </div>
         <div id="footer">
-            <a href="https://github.com/Honorio-R/Etch-a-Sketch.git" alt="Source Code">Copyright © 2023 Honorio-R</a>
+            <a 
+            href="https://github.com/Honorio-R/Etch-a-Sketch.git" 
+            alt="Source Code"
+            >
+            Copyright © 
+            <script>
+                document.write(new Date().getFullYear())
+            </script> 
+            Honorio-R
+        </a>
         </div>
     </body>
 </html>
