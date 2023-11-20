@@ -9,6 +9,7 @@ body{
     margin: 0;
     overflow: hidden;
     display: flex;
+    flex-grow: 0;
     flex-direction: column;
     background-color: rgb(32, 33, 35);
     align-items: center;
